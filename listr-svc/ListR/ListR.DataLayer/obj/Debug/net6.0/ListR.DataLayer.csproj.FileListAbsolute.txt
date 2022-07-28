@@ -1,0 +1,14 @@
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.DataLayer.deps.json
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.DataLayer.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.DataLayer.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.csproj.AssemblyReference.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.AssemblyInfoInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.AssemblyInfo.cs
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.csproj.CoreCompileInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\refint\ListR.DataLayer.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ref\ListR.DataLayer.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.DataLayer.runtimeconfig.json
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.genruntimeconfig.cache
