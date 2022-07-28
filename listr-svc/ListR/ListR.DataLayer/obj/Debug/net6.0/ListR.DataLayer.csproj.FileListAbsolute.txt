@@ -12,3 +12,6 @@ C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLay
 C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ref\ListR.DataLayer.dll
 C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.DataLayer.runtimeconfig.json
 C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.genruntimeconfig.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.Common.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\bin\Debug\net6.0\ListR.Common.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.DataLayer\obj\Debug\net6.0\ListR.DataLayer.csproj.CopyComplete

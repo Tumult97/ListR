@@ -1,0 +1,12 @@
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\bin\Debug\net6.0\ListR.Services.deps.json
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\bin\Debug\net6.0\ListR.Services.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\bin\Debug\net6.0\ListR.Services.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.csproj.AssemblyReference.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.AssemblyInfoInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.AssemblyInfo.cs
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.csproj.CoreCompileInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\refint\ListR.Services.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ListR.Services.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.Services\obj\Debug\net6.0\ref\ListR.Services.dll

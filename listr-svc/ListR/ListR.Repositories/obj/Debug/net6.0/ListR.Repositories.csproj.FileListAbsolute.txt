@@ -1,0 +1,12 @@
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\bin\Debug\net6.0\ListR.Repositories.deps.json
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\bin\Debug\net6.0\ListR.Repositories.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\bin\Debug\net6.0\ListR.Repositories.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.csproj.AssemblyReference.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.AssemblyInfoInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.AssemblyInfo.cs
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.csproj.CoreCompileInputs.cache
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\refint\ListR.Repositories.dll
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ListR.Repositories.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.Repositories\obj\Debug\net6.0\ref\ListR.Repositories.dll

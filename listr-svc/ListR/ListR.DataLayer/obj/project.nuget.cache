@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AJ1nGl5qCod0AxBPghxAuPwhJzIxSgDwPH6YrBdSLLz9g461+l0l6A/U1ZDdLWSzkkApWZNH/OzfZ96jgADJ6g==",
+  "dgSpecHash": "NVtr5hzThg9F6tfjYQyVlnXnny02vdH6zoeOL5aLs11G0PnM4R9RdMHPOMgGuTv0W4KMpVM9VJMvtZA9+bPduA==",
   "success": true,
   "projectFilePath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
   "expectedPackageFiles": [
