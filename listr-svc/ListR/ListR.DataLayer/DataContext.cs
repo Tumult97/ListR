@@ -8,6 +8,7 @@ namespace ListR.DataLayer
 {
     public class DataContext : IdentityDbContext<User>
     {
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
@@ -22,8 +23,8 @@ namespace ListR.DataLayer
             modelBuilder.Entity<ShopList>()
                 .HasMany(x => x.ListItems);
 
-            modelBuilder.Entity<ShopList>()
-                .HasMany(x => x.ListItems);
+            modelBuilder.Entity<UserGroup>()
+                .HasMany(x => x.Lists);
 
             base.OnModelCreating(modelBuilder);
         }

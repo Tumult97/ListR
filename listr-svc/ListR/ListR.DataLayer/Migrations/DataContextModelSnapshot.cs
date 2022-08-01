@@ -187,8 +187,9 @@ namespace ListR.DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserCreatedBy")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserCreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

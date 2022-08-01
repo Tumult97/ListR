@@ -36,9 +36,6 @@ namespace ListR.Api.Controllers
         {
             var authClaims = await _authenticationService.Login(model);
 
-            if (authClaims == null)
-                return Unauthorized();
-
             var token = GetToken(authClaims);
 
             return Ok(new

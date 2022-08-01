@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "woP3NMjp0E26Y6crZqBsRgGw+3VrvvPZ+rGNoYGdUYOkgrdIk7RmJlty8KXdlcP3OW6f29upIACDMgJqp/FhOQ==",
+  "dgSpecHash": "FDIOUHKuOgiIgPk1lqYlYQ4Ikn/u4oc86Rgw81qjkXN2IYVFlUV+9ils5xaCdjo22+VEMN3OhRGvIaRuyV1Ibg==",
   "success": true,
   "projectFilePath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Services\\ListR.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.7\\microsoft.aspnetcore.cryptography.keyderivation.6.0.7.nupkg.sha512",
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.7\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.7.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.7\\microsoft.entityframeworkcore.6.0.7.nupkg.sha512",
@@ -31,7 +33,8 @@
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.22.0\\system.identitymodel.tokens.jwt.6.22.0.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

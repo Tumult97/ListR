@@ -9,7 +9,7 @@ namespace ListR.DataLayer.EntityModels.Users
 
         public string Name { get; set; } = string.Empty;
 
-        public int UserCreatedBy { get; set; }
+        public string? UserCreatedBy { get; set; }
 
         public ICollection<User>? Users { get; set; }
 

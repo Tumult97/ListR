@@ -5,8 +5,14 @@ namespace ListR.Common.Interfaces.Repositories
 
     public interface IUserGroupRepository
     {
+        Task SaveChangesAsync();
+        
         Task CreateUserGroup(UserGroup model);
-        Task UpdateUserGroup(UserGroup model);
-        Task<UserGroup?> GetUserGroup(string userId);
+        
+        void UpdateUserGroup(UserGroup model);
+
+        Task<List<UserGroup>> GetUserGroupsByEmail(string email);
+
+        Task<UserGroup?> GetUserGroupByUserId(int userGroupId);
     }
 }

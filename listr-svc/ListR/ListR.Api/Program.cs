@@ -92,6 +92,7 @@ builder.Services.AddControllers(
 #region Services
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IUserGroupService, UserGroupService>();
+builder.Services.AddTransient<IUserService, UserService>();
 #endregion
 
 #region Repositories

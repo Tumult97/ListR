@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ListR.DataLayer\ListR.DataLayer.csproj" />
+    <ProjectReference Include="..\ListR.Repositories\ListR.Repositories.csproj" />
     <ProjectReference Include="..\ListR.Services\ListR.Services.csproj" />
   </ItemGroup>
 

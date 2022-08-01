@@ -1,9 +1,4 @@
 ﻿using ListR.DataLayer.EntityModels.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListR.Common.Interfaces.Services
 {
@@ -11,7 +6,7 @@ namespace ListR.Common.Interfaces.Services
     {
         Task CreateUserGroup(UserGroup model);
         Task UpdateUserGroup(UserGroup model);
-        Task<UserGroup?> GetUserGroup(string userId);
+        Task<List<UserGroup>> GetUserGroupsByEmail(string email);
+        Task AddUserToUserGroup(string email, int userGroupId);
     }
-}
 }
