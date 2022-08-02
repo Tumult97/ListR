@@ -15,10 +15,10 @@ namespace ListR.DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasMany(x => x.UserGroups)
-                .WithMany(x => x.Users)
-                .UsingEntity(o => o.ToTable("UserGroupMappings"));
+            //modelBuilder.Entity<User>()
+            //    .HasMany(x => x.UserGroups)
+            //    .WithMany(x => x.Users)
+            //    .UsingEntity(o => o.ToTable("UserGroupMappings"));
 
             modelBuilder.Entity<ShopList>()
                 .HasMany(x => x.ListItems);
@@ -34,6 +34,7 @@ namespace ListR.DataLayer
         #region [ Users ]
 
         public DbSet<UserGroup> UserGroups { get; set; }
+        public DbSet<UserGroupMapping> UserGroupMappings { get; set; }
 
         #endregion
 

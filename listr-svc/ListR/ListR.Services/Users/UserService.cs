@@ -15,16 +15,25 @@ public class UserService : IUserService
 
     public async Task<User> GetUser(string email)
     {
-        return await _userManager.FindByEmailAsync(email);
+        var user = await _userManager.FindByEmailAsync(email);
+        return new User
+        {
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            Id = user.Id,
+            Email = user.Email
+        };
     }
 
-    public Task UpdateUser(User model)
+    public async Task UpdateUser(User model)
     {
-        throw new NotImplementedException();
+        await _userManager.UpdateAsync(model);
+        
     }
 
-    public Task DeleteUser(string email)
+    public async Task DeleteUser(string email)
     {
-        throw new NotImplementedException();
+        var user = await _userManager.FindByEmailAsync(email);
+        await _userManager.DeleteAsync(user);
     }
 }

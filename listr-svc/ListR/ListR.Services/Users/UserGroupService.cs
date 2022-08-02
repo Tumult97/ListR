@@ -24,7 +24,6 @@ namespace ListR.Services.Users
 
         public async Task CreateUserGroup(UserGroup model)
         {
-            model.UserCreatedBy = _httpContextAccessor?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             await _userGroupRepository.CreateUserGroup(model);
             await _userGroupRepository.SaveChangesAsync();
         }

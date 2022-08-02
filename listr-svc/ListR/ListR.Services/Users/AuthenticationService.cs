@@ -24,7 +24,7 @@ namespace ListR.Services.Users
             _configuration = configuration;
         }
 
-        public async Task<List<Claim>> Login(LoginModel model)
+        public async Task<List<Claim>?> Login(LoginModel model)
         {
             var user = await _userManager.FindByNameAsync(model.Username);
 
@@ -37,11 +37,7 @@ namespace ListR.Services.Users
                     new Claim(ClaimTypes.Name, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 };
-
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
+                authClaims.AddRange(userRoles.Select(userRole => new Claim(ClaimTypes.Role, userRole)));
 
                 return authClaims;
             }
@@ -95,7 +91,9 @@ namespace ListR.Services.Users
             {
                 Email = model.Email,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username
+                UserName = model.Username,
+                FirstName = model.FirstName ?? "",
+                LastName = model.LastName ?? ""
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);

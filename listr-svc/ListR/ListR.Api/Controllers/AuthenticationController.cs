@@ -69,17 +69,17 @@ namespace ListR.Api.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
-#endregion
+        #endregion
 
         #region Private Methods
-        private JwtSecurityToken GetToken(List<Claim> authClaims)
+        private JwtSecurityToken GetToken(List<Claim>? authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddHours(3),
+                expires: DateTime.Now.AddDays(1),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
