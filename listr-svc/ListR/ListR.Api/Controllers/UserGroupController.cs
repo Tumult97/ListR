@@ -33,7 +33,7 @@ public class UserGroupController : Controller
     [HttpPut("add-user/{email}/{groupId}")]
     public async Task<IActionResult> AddUserToGroup([FromRoute] string email, [FromRoute] int groupId)
     {
-        await _userGroupService.AddUserToUserGroup(email, groupId);
+        await _userGroupService.AddUsersToUserGroup(new List<string> { email }, groupId);
         return Ok();
     }
 }

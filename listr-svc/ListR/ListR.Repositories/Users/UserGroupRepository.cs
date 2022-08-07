@@ -1,4 +1,5 @@
-﻿using ListR.Common.Interfaces.Repositories;
+﻿using ListR.Common.DatbaseQueries;
+using ListR.Common.Interfaces.Repositories;
 using ListR.DataLayer;
 using ListR.DataLayer.EntityModels.Users;
 using Microsoft.EntityFrameworkCore;
@@ -24,33 +25,19 @@ namespace ListR.Repositories.Users
             await _context.UserGroups.AddAsync(model);
         }
 
-        public async Task<List<UserGroup>> GetUserGroupsByEmail(string email)
-        {
-            var model = await _context.UserGroups
-                                            .Include(x => x.Users)
-                                            .Include(x => x.Lists)
-                                            .Where(
-                                                x => x.Users != null && x.Users.Any(o => o.Email == email)
-                                            ).ToListAsync();
+        public async Task<List<UserGroup>> GetUserGroupsByEmail(string email) => await _context.UserGroups.FromSqlRaw(DatabaseQueries.UserGroupsGetAllByEmail(email).ToString()).ToListAsync();
 
-            return model;
-        }
-
-        public async Task<UserGroup?> GetUserGroupByUserId(int userGroupId)
-        {
-            var model = await _context.UserGroups
-                .Include(x => x.Users)
-                .Include(x => x.Lists)
-                .Where(
-                    x => x.Id == userGroupId
-                ).FirstOrDefaultAsync();
-
-            return model;
-        }
+        public async Task<UserGroup?> GetUserGroupByUserId(int userGroupId) => await _context.UserGroups
+            .FromSqlInterpolated(DatabaseQueries.UserGroupsGetById(userGroupId)).FirstOrDefaultAsync();
 
         public void UpdateUserGroup(UserGroup model)
         {
             _context.UserGroups.Update(model);
+        }
+
+        public async Task AddUsersToGroup(List<UserGroupMapping> models)
+        {
+            await _context.UserGroupMappings.AddRangeAsync(models);
         }
     }
 }
