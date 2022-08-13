@@ -1,7 +1,7 @@
 class ResponseBase {
-  bool? success;
+  bool success;
   String? message;
   String? body;
 
-  ResponseBase({this.message, this.body, this.success});
+  ResponseBase({this.message, this.body, required this.success});
 }

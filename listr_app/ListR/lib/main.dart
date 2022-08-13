@@ -1,14 +1,17 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:flutter/material.dart';
+import 'package:listr/common/logic/Services/authentication_service.dart';
+import 'package:toast/toast.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ToastContext().init(context);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -30,11 +33,21 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  AuthenticationService authenticationService = AuthenticationService();
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+
     setState(() {
       _counter++;
     });
+
+
+    var response = await authenticationService.login('Tristanvdm87', 'Tiberium-97');
+    showToast(json.encode(response));
+  }
+
+  void showToast(String msg, {int? duration, int? gravity}) {
+    Toast.show(msg, duration: duration, gravity: gravity);
   }
 
   @override

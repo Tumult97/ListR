@@ -4,8 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:listr/common/models/Responses/response_base.dart';
 
 class Api{
- final String apiBaseUrl = "http://localhost:7024/api/";
-  String headerToken = "";
+ final String apiBaseUrl = "localhost:7024";
 
   static const Map<String,String> headersBase = {
     'Content-type' : 'application/json',
@@ -38,7 +37,7 @@ class Api{
    ResponseBase response;
 
    try{
-     Uri uri = Uri.http(apiBaseUrl, path);
+     Uri uri = Uri.http(apiBaseUrl, 'api/$path');
 
      var headers = headersBase;
      if(bearerToken.isNotEmpty){
@@ -48,7 +47,7 @@ class Api{
 
      var jsonBody = '';
      if(body != null){
-       jsonBody = json.encode(body);
+       jsonBody = json.encode(body.toMap());
      }
 
      var httpResponse = await http.post(uri, headers: headers, body: jsonBody);
