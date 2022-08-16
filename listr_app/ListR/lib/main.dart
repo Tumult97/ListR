@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:listr/common/logic/Services/authentication_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
 void main() => runApp(const MyApp());
@@ -42,8 +43,17 @@ class _MyHomePageState extends State<MyHomePage> {
     });
 
 
-    var response = await authenticationService.login('Tristanvdm87', 'Tiberium-97');
-    showToast(json.encode(response));
+    //var response = await authenticationService.login('Tristanvdm87', 'Tiberium-97');
+    // ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    //   content: Text(response.toString()),
+    // ));
+
+    var prefs = await SharedPreferences.getInstance();
+    var token = prefs.get('BearerHeader');
+
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(token.toString()),
+    ));
   }
 
   void showToast(String msg, {int? duration, int? gravity}) {

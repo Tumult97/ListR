@@ -1,6 +1,7 @@
 ﻿using ListR.Common.Interfaces.Services;
 using ListR.Common.Models.ApiActions;
 using ListR.Common.Models.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -67,6 +68,14 @@ namespace ListR.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = result.Error });
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
+        }
+
+        [HttpGet]
+        [Authorize]
+        //[Route("validate")]
+        public ActionResult ValidateAuthorisation()
+        {
+            return Ok();
         }
 
         #endregion

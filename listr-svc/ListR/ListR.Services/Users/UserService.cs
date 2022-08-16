@@ -16,13 +16,14 @@ public class UserService : IUserService
     public async Task<User> GetUser(string email)
     {
         var user = await _userManager.FindByEmailAsync(email);
-        return new User
-        {
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Id = user.Id,
-            Email = user.Email
-        };
+        return user;
+        //return new User
+        //{
+        //    FirstName = user.FirstName,
+        //    LastName = user.LastName,
+        //    Id = user.Id,
+        //    Email = user.Email
+        //};
     }
 
     public async Task UpdateUser(User model)
