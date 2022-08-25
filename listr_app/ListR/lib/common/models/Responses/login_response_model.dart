@@ -1,10 +1,10 @@
-class LoginResponseModel {
+class AuthResonseModel {
   String? token;
   String? expiration;
 
-  LoginResponseModel({this.token, this.expiration});
+  AuthResonseModel({this.token, this.expiration});
 
-  LoginResponseModel.fromJson(Map<String, dynamic> json) {
+  AuthResonseModel.fromJson(Map<String, dynamic> json) {
     token = json['token'];
     expiration = json['expiration'];
   }

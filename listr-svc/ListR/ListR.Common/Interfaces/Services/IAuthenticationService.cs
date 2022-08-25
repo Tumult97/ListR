@@ -11,7 +11,7 @@ namespace ListR.Common.Interfaces.Services
 {
     public interface IAuthenticationService
     {
-        Task<List<Claim>?> Login(LoginModel model);
+        Task<User> Login(LoginModel model);
         Task<RegisterStatusModel> Register(RegisterModel model);
         Task<RegisterStatusModel> RegisterAdmin(RegisterModel model);
     }

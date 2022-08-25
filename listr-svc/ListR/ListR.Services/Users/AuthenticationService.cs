@@ -24,22 +24,13 @@ namespace ListR.Services.Users
             _configuration = configuration;
         }
 
-        public async Task<List<Claim>?> Login(LoginModel model)
+        public async Task<User?> Login(LoginModel model)
         {
-            var user = await _userManager.FindByNameAsync(model.Username);
+            User user = await _userManager.FindByNameAsync(model.Username);
 
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
-                var userRoles = await _userManager.GetRolesAsync(user);
-
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-                authClaims.AddRange(userRoles.Select(userRole => new Claim(ClaimTypes.Role, userRole)));
-
-                return authClaims;
+                return user;
             }
 
             return null;

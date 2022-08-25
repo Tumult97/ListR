@@ -4,6 +4,7 @@ using ListR.Common.Models.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -35,9 +36,12 @@ namespace ListR.Api.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var authClaims = await _authenticationService.Login(model);
+            var user = await _authenticationService.Login(model);
 
-            var token = GetToken(authClaims);
+            if (user == null)
+                return NotFound("Incorrect login combination.");
+
+            var token = GetToken();
 
             return Ok(new
             {
@@ -71,25 +75,30 @@ namespace ListR.Api.Controllers
         }
 
         [HttpGet]
+        [Route("validate")]
         [Authorize]
-        //[Route("validate")]
         public ActionResult ValidateAuthorisation()
         {
-            return Ok();
+            var token = GetToken();
+
+            return Ok(new
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(token),
+                expiration = token.ValidTo
+            });
         }
 
         #endregion
 
         #region Private Methods
-        private JwtSecurityToken GetToken(List<Claim>? authClaims)
+        private JwtSecurityToken GetToken()
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddDays(1),
-                claims: authClaims,
+                //claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
 

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:listr/components/App/Authentication/login_page.dart';
+import 'package:listr/components/app/home/home_page.dart';
 
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: "/",
+    initialRoute: '/',
     theme: ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSwatch(
@@ -16,7 +17,7 @@ void main() {
       ),
     ),
     routes: {
-      '/': (context) => const LoginPage(),
+      '/': (context) => const HomePage(),
     },
   ));
 }
