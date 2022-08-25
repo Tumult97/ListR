@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthenticationService{
 
-  Future<bool> login(String username, String password) async {
+  static Future<bool> login(String username, String password) async {
     final prefs = await SharedPreferences.getInstance();
 
     var request = LoginModel(username: username, password: password);
