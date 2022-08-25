@@ -29,8 +29,8 @@ class AuthenticationService{
       String firstName,
       String lastName,
       String password) async {
-    final prefs = await SharedPreferences.getInstance();
-    var bearerToken = prefs.getString('BearerHeader');
+    //final prefs = await SharedPreferences.getInstance();
+    //var bearerToken = prefs.getString('BearerHeader');
 
   }
 }

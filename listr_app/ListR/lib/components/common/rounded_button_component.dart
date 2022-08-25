@@ -19,8 +19,6 @@ class RoundedButtonComponent extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     color ??= Theme.of(context).colorScheme.primary;
 
-    MaterialColor test = Colors.green;
-
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
