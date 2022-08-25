@@ -10,6 +10,7 @@ namespace ListR.DataLayer.EntityModels.Users
 
         public string LastName { get; set; } = string.Empty;
 
-        public ICollection<UserGroup> UserGroups { get; set; }
+        [NotMapped]
+        public List<UserGroup>? UserGroups { get; set; }
     }
 }

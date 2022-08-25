@@ -19,6 +19,6 @@ namespace ListR.DataLayer.EntityModels.Users
         public List<string>? UserIds { get; set; }
         
         [NotMapped]
-        public bool iscreator { get; set; }
+        public bool isCreator { get; set; }
     }
 }
