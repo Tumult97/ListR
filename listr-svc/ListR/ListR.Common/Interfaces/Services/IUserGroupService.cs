@@ -7,6 +7,6 @@ namespace ListR.Common.Interfaces.Services
         Task CreateUserGroup(UserGroup model);
         Task UpdateUserGroup(UserGroup model);
         Task<List<UserGroup>> GetUserGroupsByEmail(string email);
-        Task AddUserToUserGroup(string email, int userGroupId);
+        Task AddUsersToUserGroup(List<string> ids, int userGroupId);
     }
 }

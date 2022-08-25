@@ -14,5 +14,7 @@ namespace ListR.Common.Interfaces.Repositories
         Task<List<UserGroup>> GetUserGroupsByEmail(string email);
 
         Task<UserGroup?> GetUserGroupByUserId(int userGroupId);
+
+        Task AddUsersToGroup(List<UserGroupMapping> models);
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hSDxaDz8fwEZ2KXu7q2cx0lNyKuozlWXzNWYhA0yskW6GGVG3UeLHQHqyhfUtI/7I/rVuUyq2hrA1rCqdPxRCw==",
+  "dgSpecHash": "8ksBy0yKoyyRH5Pf8R09nmt42+2aQ0aU3jAAALtg+EQFE9rAVJrIzWzCeEqaqnwypB4IzUSpxnV92RZEAXBbIQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Api\\ListR.Api.csproj",
   "expectedPackageFiles": [

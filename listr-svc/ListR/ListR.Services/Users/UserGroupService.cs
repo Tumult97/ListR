@@ -33,20 +33,21 @@ namespace ListR.Services.Users
             return await _userGroupRepository.GetUserGroupsByEmail(email);
         }
 
-        public async Task AddUserToUserGroup(string email, int userGroupId)
-        {
-            var user = await _userService.GetUser(email);
-            var userGroup = await _userGroupRepository.GetUserGroupByUserId(userGroupId);
-            
-            userGroup?.Users?.Add(user);
-
-            if (userGroup != null) _userGroupRepository.UpdateUserGroup(userGroup);
-            await _userGroupRepository.SaveChangesAsync();
-        }
-
         public async Task UpdateUserGroup(UserGroup model)
         {
             _userGroupRepository.UpdateUserGroup(model);
+            await _userGroupRepository.SaveChangesAsync();
+        }
+
+        public async Task AddUsersToUserGroup(List<string> ids, int userGroupId)
+        {
+            List<UserGroupMapping> models = ids.Select(x => new UserGroupMapping
+            {
+                UsersId = x,
+                UserGroupsId = userGroupId
+            }).ToList();
+
+            await _userGroupRepository.AddUsersToGroup(models);
             await _userGroupRepository.SaveChangesAsync();
         }
     }
