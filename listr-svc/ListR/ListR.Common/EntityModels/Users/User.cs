@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Claims;
 
 namespace ListR.DataLayer.EntityModels.Users
 {
@@ -12,5 +13,8 @@ namespace ListR.DataLayer.EntityModels.Users
 
         [NotMapped]
         public List<UserGroup>? UserGroups { get; set; }
+
+        [NotMapped]
+        public List<Claim>? claims { get; set; }
     }
 }

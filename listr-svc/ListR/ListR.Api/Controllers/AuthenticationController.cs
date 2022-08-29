@@ -4,6 +4,7 @@ using ListR.Common.Models.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -19,13 +20,15 @@ namespace ListR.Api.Controllers
         #region Services
         private readonly IAuthenticationService _authenticationService;
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         #endregion
 
         #region Setup
-        public AuthenticationController(IAuthenticationService authenticationService, IConfiguration configuration)
+        public AuthenticationController(IAuthenticationService authenticationService, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _authenticationService = authenticationService;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
         #endregion
 
@@ -35,15 +38,36 @@ namespace ListR.Api.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var authClaims = await _authenticationService.Login(model);
+            var user = await _authenticationService.Login(model);
 
-            var token = GetToken(authClaims);
+            if (user == null)
+                return NotFound("Incorrect login combination.");
+
+            var token = GetToken(user.claims);
 
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 expiration = token.ValidTo
             });
+        }
+
+        [HttpPost]
+        [Route("loginauth")]
+        public async Task<IActionResult> LoginAuth()
+        {
+            var user = await _authenticationService.Login(new LoginModel
+            {
+                Password = "Tiberium-97",
+                Username = "tristanvdm87@gmail.com"
+            });
+
+            if (user == null)
+                return NotFound("Incorrect login combination.");
+
+            var token = GetToken(user.claims);
+
+            return Ok("Bearer " + (new JwtSecurityTokenHandler().WriteToken(token).ToString()));
         }
 
         [HttpPost]
@@ -71,25 +95,33 @@ namespace ListR.Api.Controllers
         }
 
         [HttpGet]
+        [Route("validate")]
         [Authorize]
-        //[Route("validate")]
         public ActionResult ValidateAuthorisation()
         {
-            return Ok();
+            var claims = _httpContextAccessor.HttpContext?.User.Claims.ToList();
+            var token = GetToken(claims);
+
+            return Ok(new
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(token),
+                expiration = token.ValidTo
+            });
         }
 
         #endregion
 
         #region Private Methods
-        private JwtSecurityToken GetToken(List<Claim>? authClaims)
+        private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                expires: DateTime.Now.AddDays(1),
-                claims: authClaims,
+                authClaims,
+                DateTime.UtcNow,
+                DateTime.UtcNow.AddDays(1),
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
 

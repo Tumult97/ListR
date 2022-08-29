@@ -1,4 +1,2 @@
-class AuthEndpointConstants{
-
-  static const String login = 'Authentication/login';
-}
+const String login = 'Authentication/login';
+const String validate = 'Authentication/validate';

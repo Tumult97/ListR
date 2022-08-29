@@ -159,6 +159,9 @@ namespace ListR.DataLayer.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
+                    b.Property<int?>("UserGroupId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -171,6 +174,8 @@ namespace ListR.DataLayer.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
+
+                    b.HasIndex("UserGroupId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -347,21 +352,6 @@ namespace ListR.DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("UserUserGroup", b =>
-                {
-                    b.Property<int>("UserGroupsId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UsersId")
-                        .HasColumnType("text");
-
-                    b.HasKey("UserGroupsId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("UserUserGroup");
-                });
-
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ListItem", b =>
                 {
                     b.HasOne("ListR.DataLayer.EntityModels.Lists.ShopList", null)
@@ -376,6 +366,13 @@ namespace ListR.DataLayer.Migrations
                         .HasForeignKey("UserGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ListR.DataLayer.EntityModels.Users.User", b =>
+                {
+                    b.HasOne("ListR.DataLayer.EntityModels.Users.UserGroup", null)
+                        .WithMany("Users")
+                        .HasForeignKey("UserGroupId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -429,21 +426,6 @@ namespace ListR.DataLayer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("UserUserGroup", b =>
-                {
-                    b.HasOne("ListR.DataLayer.EntityModels.Users.UserGroup", null)
-                        .WithMany()
-                        .HasForeignKey("UserGroupsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ListR.DataLayer.EntityModels.Users.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ShopList", b =>
                 {
                     b.Navigation("ListItems");
@@ -452,6 +434,8 @@ namespace ListR.DataLayer.Migrations
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Users.UserGroup", b =>
                 {
                     b.Navigation("Lists");
+
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
