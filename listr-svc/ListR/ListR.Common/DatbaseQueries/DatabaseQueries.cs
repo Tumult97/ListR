@@ -5,7 +5,7 @@ public class DatabaseQueries
     public static FormattableString UserGroupsGetAllByEmail(string email)
     {
         FormattableString sql = $@"
-                    Select 
+                    Select distinct
                       ug.*,
                       CASE WHEN u.""Id"" is NOT null then
                       1 else 0 end as IsCreator

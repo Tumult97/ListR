@@ -20,13 +20,15 @@ namespace ListR.Api.Controllers
         #region Services
         private readonly IAuthenticationService _authenticationService;
         private readonly IConfiguration _configuration;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         #endregion
 
         #region Setup
-        public AuthenticationController(IAuthenticationService authenticationService, IConfiguration configuration)
+        public AuthenticationController(IAuthenticationService authenticationService, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
         {
             _authenticationService = authenticationService;
             _configuration = configuration;
+            _httpContextAccessor = httpContextAccessor;
         }
         #endregion
 
@@ -41,13 +43,31 @@ namespace ListR.Api.Controllers
             if (user == null)
                 return NotFound("Incorrect login combination.");
 
-            var token = GetToken();
+            var token = GetToken(user.claims);
 
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(token),
                 expiration = token.ValidTo
             });
+        }
+
+        [HttpPost]
+        [Route("loginauth")]
+        public async Task<IActionResult> LoginAuth()
+        {
+            var user = await _authenticationService.Login(new LoginModel
+            {
+                Password = "Tiberium-97",
+                Username = "tristanvdm87@gmail.com"
+            });
+
+            if (user == null)
+                return NotFound("Incorrect login combination.");
+
+            var token = GetToken(user.claims);
+
+            return Ok("Bearer " + (new JwtSecurityTokenHandler().WriteToken(token).ToString()));
         }
 
         [HttpPost]
@@ -79,7 +99,8 @@ namespace ListR.Api.Controllers
         [Authorize]
         public ActionResult ValidateAuthorisation()
         {
-            var token = GetToken();
+            var claims = _httpContextAccessor.HttpContext?.User.Claims.ToList();
+            var token = GetToken(claims);
 
             return Ok(new
             {
@@ -91,14 +112,16 @@ namespace ListR.Api.Controllers
         #endregion
 
         #region Private Methods
-        private JwtSecurityToken GetToken()
+        private JwtSecurityToken GetToken(List<Claim> authClaims)
         {
             var authSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
             var token = new JwtSecurityToken(
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
-                //claims: authClaims,
+                authClaims,
+                DateTime.UtcNow,
+                DateTime.UtcNow.AddDays(1),
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                 );
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:listr/common/logic/Connection/api.dart' as api;
-import 'package:listr/common/Constants/ApiEndpoints/auth_endpoints_constant.dart' as constants;
+import 'package:listr/common/Constants/ApiEndpoints/auth_endpoints_constant.dart' as methods;
 import 'package:listr/common/models/Requests/login_model.dart';
 import 'package:listr/common/models/Responses/login_response_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,7 +12,7 @@ class AuthenticationService{
     final prefs = await SharedPreferences.getInstance();
 
     var request = LoginModel(username: username, password: password);
-    var response = await api.Api().postAsync(constants.AuthEndpointConstants.login, request);
+    var response = await api.Api().postAsync(methods.login, request);
 
     AuthResonseModel responseBody = AuthResonseModel();
     if(response.success && response.body!.isNotEmpty){
@@ -38,7 +38,7 @@ class AuthenticationService{
     final prefs = await SharedPreferences.getInstance();
     var bearerToken = prefs.getString('BearerHeader');
     
-    var response = await api.Api().getAsync(constants.AuthEndpointConstants.validate);
+    var response = await api.Api().getAsync(methods.validate);
 
     AuthResonseModel responseBody = AuthResonseModel();
     if(response.success && response.body!.isNotEmpty){

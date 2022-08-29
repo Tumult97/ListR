@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:listr/components/App/Authentication/login_page.dart';
 import 'package:listr/components/app/home/home_page.dart';
+import 'package:listr/common/Constants/app/navigation_routes_constants.dart' as routes;
 
 void main() {
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
@@ -17,7 +19,9 @@ void main() {
       ),
     ),
     routes: {
-      '/': (context) => const HomePage(),
+      routes.def: (context) => LoginPage(),
+      routes.login: (context) => LoginPage(),
+      routes.home: (context) => HomePage()
     },
   ));
 }
