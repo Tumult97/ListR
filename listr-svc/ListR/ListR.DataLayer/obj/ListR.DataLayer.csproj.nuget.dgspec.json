@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj": {}
+    "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
+    "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj",
+        "projectUniqueName": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj",
         "projectName": "ListR.Common",
-        "projectPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj",
-        "packagesPath": "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\obj\\",
+        "projectPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj",
+        "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+        "outputPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tristan.vdmerwe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://tools.standardbank.co.za/nexus/repository/CIBRAS/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
@@ -52,7 +51,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj": {
+    "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
+        "projectUniqueName": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
         "projectName": "ListR.DataLayer",
-        "projectPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
-        "packagesPath": "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\obj\\",
+        "projectPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
+        "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
+        "outputPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tristan.vdmerwe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,15 +83,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://tools.standardbank.co.za/nexus/repository/CIBRAS/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
-                "projectPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj"
+              "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
+                "projectPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj"
               }
             }
           }
@@ -149,7 +148,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -158,7 +158,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,5 @@
+class Routes{
+  var routes = {
+
+  };
+}
