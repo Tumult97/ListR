@@ -7,7 +7,7 @@ namespace ListR.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+//[Authorize]
 public class UserGroupController : Controller
 {
     private readonly IUserGroupService _userGroupService;

@@ -2,6 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ListR.DataLayer.EntityModels.Lists
 {
@@ -19,15 +20,16 @@ namespace ListR.DataLayer.EntityModels.Lists
 
         public DateTime DateCreated { get; set; }
 
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
 
-        public int UserCreatedBy { get; set; }
+        public string UserCreatedBy { get; set; } = string.Empty;
 
         public int UserGroupId { get; set; }
 
-        public DateTime DateCompleted { get; set; }
+        public DateTime? DateCompleted { get; set; }
 
-        public ICollection<ListItem>? ListItems { get; set; }
+        [JsonIgnore]
+        public ICollection<ListItem> ListItems { get; set; } = new List<ListItem>();
 
     }
 }

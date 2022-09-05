@@ -1,5 +1,6 @@
 ﻿using ListR.DataLayer.EntityModels.Lists;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ListR.DataLayer.EntityModels.Users
 {
@@ -11,9 +12,11 @@ namespace ListR.DataLayer.EntityModels.Users
 
         public string? UserCreatedBy { get; set; }
 
-        public ICollection<User>? Users { get; set; }
+        [JsonIgnore]
+        public ICollection<User> Users { get; set; } = new List<User>();
 
-        public ICollection<ShopList>? Lists { get; set; }
+        [JsonIgnore]
+        public ICollection<ShopList> Lists { get; set; } = new List<ShopList>();
 
         [NotMapped]
         public List<string>? UserIds { get; set; }

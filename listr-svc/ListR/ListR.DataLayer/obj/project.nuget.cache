@@ -1,9 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "RJxA2/dyDPAID4S1JROP6tW0Cc1SIVhpl0ItszWB5fp8ANY18uebnXtfZ/MoSEbma7AqFD0r+OevNR83g39bKw==",
+=======
+  "dgSpecHash": "y2Tv7I+tKXNfZu5xqe+oHUYzB4aA/0pixW5MMCVzOxI89DcJKnm5qJ0KHcGq08rRNepaWn7xbIhL5KY3W8C4Qg==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.7\\microsoft.aspnetcore.cryptography.keyderivation.6.0.7.nupkg.sha512",

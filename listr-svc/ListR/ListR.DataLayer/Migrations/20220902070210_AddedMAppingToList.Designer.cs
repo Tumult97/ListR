@@ -3,6 +3,7 @@ using System;
 using ListR.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ListR.DataLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220902070210_AddedMAppingToList")]
+    partial class AddedMAppingToList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -340,11 +342,7 @@ namespace ListR.DataLayer.Migrations
 
                     b.HasIndex("UsersId");
 
-<<<<<<< Updated upstream
-                    b.ToTable("UserUserGroup");
-=======
                     b.ToTable("UserGroupMappings", (string)null);
->>>>>>> Stashed changes
                 });
 
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ListItem", b =>

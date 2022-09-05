@@ -15,16 +15,29 @@ namespace ListR.DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>()
-            //    .HasMany(x => x.UserGroups)
-            //    .WithMany(x => x.Users)
-            //    .UsingEntity(o => o.ToTable("UserGroupMappings"));
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.UserGroups)
+                .WithMany(x => x.Users)
+                .UsingEntity(o => o.ToTable("UserGroupMappings"));
 
-            modelBuilder.Entity<ShopList>()
-                .HasMany(x => x.ListItems);
+          //  modelBuilder.Entity<User>()
+          //      .HasMany
+
+          //  modelBuilder.Entity<Library2Book>()
+          //.HasOne(x => x.Book)
+          //.WithMany(x => x.Library2Books)
+          //.HasForeignKey(x => x.BookId);
+
+          //  modelBuilder.Entity<Library2Book>()
+          //     .HasOne(x => x.Library)
+          //     .WithMany(x => x.Library2Books)
+          //     .HasForeignKey(x => x.LibraryId);
 
             modelBuilder.Entity<UserGroup>()
                 .HasMany(x => x.Lists);
+
+            modelBuilder.Entity<ShopList>()
+                .HasMany(x => x.ListItems);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -34,7 +47,7 @@ namespace ListR.DataLayer
         #region [ Users ]
 
         public DbSet<UserGroup> UserGroups { get; set; }
-        public DbSet<UserGroupMapping> UserGroupMappings { get; set; }
+        //public DbSet<UserGroupMapping> UserGroupMappings { get; set; }
 
         #endregion
 

@@ -1,9 +1,14 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "hSDxaDz8fwEZ2KXu7q2cx0lNyKuozlWXzNWYhA0yskW6GGVG3UeLHQHqyhfUtI/7I/rVuUyq2hrA1rCqdPxRCw==",
+=======
+  "dgSpecHash": "kMIoYOnzz3OXflRlC8gYHh6S94BygdQsXfg+iNRSo82Dif5oC7UvByfip7Yi6qWMQ+8MDJFkADLXiIp4rZz8uA==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Api\\ListR.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.7\\microsoft.aspnetcore.authentication.jwtbearer.6.0.7.nupkg.sha512",
     "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.7\\microsoft.aspnetcore.cryptography.internal.6.0.7.nupkg.sha512",
