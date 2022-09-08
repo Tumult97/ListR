@@ -3,6 +3,7 @@ using System;
 using ListR.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ListR.DataLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220908165550_edit-mappings")]
+    partial class editmappings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,6 +38,9 @@ namespace ListR.DataLayer.Migrations
                     b.Property<int>("ItemType")
                         .HasColumnType("integer");
 
+                    b.Property<int>("ListId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -46,7 +51,7 @@ namespace ListR.DataLayer.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ShopListId")
+                    b.Property<int?>("ShopListId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -344,9 +349,7 @@ namespace ListR.DataLayer.Migrations
                 {
                     b.HasOne("ListR.DataLayer.EntityModels.Lists.ShopList", null)
                         .WithMany("ListItems")
-                        .HasForeignKey("ShopListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopListId");
                 });
 
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ShopList", b =>

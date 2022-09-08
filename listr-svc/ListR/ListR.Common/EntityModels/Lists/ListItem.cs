@@ -7,7 +7,7 @@ namespace ListR.DataLayer.EntityModels.Lists
     {
         public int Id { get; set; }
 
-        public int ListId { get; set; }
+        public int ShopListId { get; set; }
 
         public string Name { get; set; } = string.Empty;
 

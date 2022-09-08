@@ -2550,19 +2550,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\trist\\.nuget\\packages\\": {}
+    "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
+      "projectUniqueName": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
       "projectName": "ListR.DataLayer",
-      "projectPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
-      "packagesPath": "C:\\Users\\trist\\.nuget\\packages\\",
-      "outputPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\obj\\",
+      "projectPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\ListR.DataLayer.csproj",
+      "packagesPath": "C:\\Users\\tristan.vdmerwe\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\trist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tristan.vdmerwe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2570,14 +2570,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://tools.standardbank.co.za/nexus/repository/CIBRAS/": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
-              "projectPath": "E:\\Dev\\Projects\\Personal\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj"
+            "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj": {
+              "projectPath": "C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.Common\\ListR.Common.csproj"
             }
           }
         }
@@ -2648,5 +2649,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Projects\\ListR\\listr-svc\\ListR\\ListR.DataLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

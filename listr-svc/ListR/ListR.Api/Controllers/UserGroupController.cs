@@ -18,7 +18,7 @@ public class UserGroupController : Controller
     }
 
     [HttpGet("{email}")]
-    public async Task<IActionResult> GetByEmail([FromRoute] string email)
+    public async Task<IActionResult> GetByEmail([FromRoute] string email = "tristanvdm87@gmail.com")
     {
         return Ok(await _userGroupService.GetUserGroupsByEmail(email));
     }
