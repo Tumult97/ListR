@@ -1,8 +1,12 @@
+#region Imports
+
 global using ListR.DataLayer;
 using ListR.Common.Interfaces.Repositories;
 using ListR.Common.Interfaces.Services;
 using ListR.DataLayer.EntityModels.Users;
+using ListR.Repositories.ShoppingLists;
 using ListR.Repositories.Users;
+using ListR.Services.ShoppingList;
 using ListR.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -13,6 +17,8 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using System.IO.Compression;
 using System.Text;
+
+#endregion
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -95,10 +101,12 @@ builder.Services.AddControllers(
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IUserGroupService, UserGroupService>();
 builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IShoppingListService, ShoppingListService>();
 #endregion
 
 #region Repositories
 builder.Services.AddTransient<IUserGroupRepository, UserGroupRepository>();
+builder.Services.AddTransient<IShoppingListRepository, ShoppingListRepository>();
 #endregion
 
 var app = builder.Build();
