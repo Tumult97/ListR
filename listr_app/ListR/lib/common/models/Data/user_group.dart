@@ -29,6 +29,8 @@ class UserGroup {
     isCreator = json['isCreator'];
   }
 
+
+
   Map<String, dynamic> toMap(){
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
