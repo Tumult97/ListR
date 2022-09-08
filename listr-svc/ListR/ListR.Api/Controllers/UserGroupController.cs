@@ -1,9 +1,7 @@
 ﻿using ListR.Common.Interfaces.Services;
 using ListR.DataLayer.EntityModels.Users;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace ListR.Api.Controllers;
 
@@ -13,23 +11,16 @@ namespace ListR.Api.Controllers;
 public class UserGroupController : Controller
 {
     private readonly IUserGroupService _userGroupService;
-    private readonly IHttpContextAccessor _httpContextAccessor;
 
-    public UserGroupController(IUserGroupService userGroupService,
-        IHttpContextAccessor httpContextAccessor)
+    public UserGroupController(IUserGroupService userGroupService)
     {
         _userGroupService = userGroupService;
-        _httpContextAccessor = httpContextAccessor;
     }
 
-    [HttpGet()]
-    public async Task<IActionResult> GetByEmail()
+    [HttpGet("{email}")]
+    public async Task<IActionResult> GetByEmail([FromRoute] string email = "tristanvdm87@gmail.com")
     {
-        var loggedInUser = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Email)?.Value;
-
-        if (loggedInUser != null) return Ok(await _userGroupService.GetUserGroupsByEmail(loggedInUser));
-
-        return StatusCode(418);
+        return Ok(await _userGroupService.GetUserGroupsByEmail(email));
     }
 
     [HttpPost]

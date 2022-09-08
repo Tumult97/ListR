@@ -3,6 +3,7 @@ using System;
 using ListR.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ListR.DataLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220908165550_edit-mappings")]
+    partial class editmappings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,6 +38,9 @@ namespace ListR.DataLayer.Migrations
                     b.Property<int>("ItemType")
                         .HasColumnType("integer");
 
+                    b.Property<int>("ListId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -46,7 +51,7 @@ namespace ListR.DataLayer.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ShopListId")
+                    b.Property<int?>("ShopListId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -157,9 +162,6 @@ namespace ListR.DataLayer.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
-                    b.Property<int?>("UserGroupId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -172,8 +174,6 @@ namespace ListR.DataLayer.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
-                    b.HasIndex("UserGroupId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -330,8 +330,6 @@ namespace ListR.DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("UserUserGroup", b =>
                 {
                     b.Property<int>("UserGroupsId")
@@ -347,14 +345,11 @@ namespace ListR.DataLayer.Migrations
                     b.ToTable("UserGroupMappings", (string)null);
                 });
 
->>>>>>> SVC_Vanguard
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ListItem", b =>
                 {
                     b.HasOne("ListR.DataLayer.EntityModels.Lists.ShopList", null)
                         .WithMany("ListItems")
-                        .HasForeignKey("ShopListId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopListId");
                 });
 
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ShopList", b =>
@@ -364,13 +359,6 @@ namespace ListR.DataLayer.Migrations
                         .HasForeignKey("UserGroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ListR.DataLayer.EntityModels.Users.User", b =>
-                {
-                    b.HasOne("ListR.DataLayer.EntityModels.Users.UserGroup", null)
-                        .WithMany("Users")
-                        .HasForeignKey("UserGroupId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -424,6 +412,21 @@ namespace ListR.DataLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("UserUserGroup", b =>
+                {
+                    b.HasOne("ListR.DataLayer.EntityModels.Users.UserGroup", null)
+                        .WithMany()
+                        .HasForeignKey("UserGroupsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ListR.DataLayer.EntityModels.Users.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ShopList", b =>
                 {
                     b.Navigation("ListItems");
@@ -432,8 +435,6 @@ namespace ListR.DataLayer.Migrations
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Users.UserGroup", b =>
                 {
                     b.Navigation("Lists");
-
-                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }
