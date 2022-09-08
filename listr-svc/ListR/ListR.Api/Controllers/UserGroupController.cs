@@ -26,7 +26,10 @@ public class UserGroupController : Controller
     public async Task<IActionResult> GetByEmail()
     {
         var loggedInUser = _httpContextAccessor.HttpContext?.User.FindFirst(ClaimTypes.Email)?.Value;
-        return Ok(await _userGroupService.GetUserGroupsByEmail(loggedInUser));
+
+        if (loggedInUser != null) return Ok(await _userGroupService.GetUserGroupsByEmail(loggedInUser));
+
+        return StatusCode(418);
     }
 
     [HttpPost]
