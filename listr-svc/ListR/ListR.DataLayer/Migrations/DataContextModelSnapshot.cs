@@ -67,21 +67,22 @@ namespace ListR.DataLayer.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("DateCompleted")
+                    b.Property<DateTime?>("DateCompleted")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTime>("DateModified")
+                    b.Property<DateTime?>("DateModified")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UserCreatedBy")
-                        .HasColumnType("integer");
+                    b.Property<string>("UserCreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("UserGroupId")
                         .HasColumnType("integer");
@@ -198,26 +199,6 @@ namespace ListR.DataLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserGroups");
-                });
-
-            modelBuilder.Entity("ListR.DataLayer.EntityModels.Users.UserGroupMapping", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("UserGroupsId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UsersId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UserGroupMappings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -352,6 +333,28 @@ namespace ListR.DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+<<<<<<< HEAD
+=======
+            modelBuilder.Entity("UserUserGroup", b =>
+                {
+                    b.Property<int>("UserGroupsId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("text");
+
+                    b.HasKey("UserGroupsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+<<<<<<< Updated upstream
+                    b.ToTable("UserUserGroup");
+=======
+                    b.ToTable("UserGroupMappings", (string)null);
+>>>>>>> Stashed changes
+                });
+
+>>>>>>> SVC_Vanguard
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ListItem", b =>
                 {
                     b.HasOne("ListR.DataLayer.EntityModels.Lists.ShopList", null)

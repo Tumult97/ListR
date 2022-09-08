@@ -64,3 +64,4 @@ C:\Projects\ListR\listr-svc\ListR\ListR.Api\obj\Debug\net6.0\ListR.Api.genruntim
 C:\Projects\ListR\listr-svc\ListR\ListR.Api\obj\Debug\net6.0\ref\ListR.Api.dll
 C:\Projects\ListR\listr-svc\ListR\ListR.Api\bin\Debug\net6.0\ListR.Repositories.dll
 C:\Projects\ListR\listr-svc\ListR\ListR.Api\bin\Debug\net6.0\ListR.Repositories.pdb
+C:\Projects\ListR\listr-svc\ListR\ListR.Api\bin\Debug\net6.0\Dapper.dll
