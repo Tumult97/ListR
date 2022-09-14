@@ -17,7 +17,7 @@ class AuthenticationService{
     AuthResonseModel responseBody = AuthResonseModel();
     if(response.success && response.body!.isNotEmpty){
       responseBody = AuthResonseModel.fromJson(jsonDecode(response.body!));
-      prefs.setString('', responseBody.token!);
+      prefs.setString('token', responseBody.token!);
     }
 
     return response.success;

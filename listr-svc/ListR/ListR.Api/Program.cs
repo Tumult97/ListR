@@ -6,7 +6,6 @@ using ListR.Common.Interfaces.Services;
 using ListR.DataLayer.EntityModels.Users;
 using ListR.Repositories.ShoppingLists;
 using ListR.Repositories.Users;
-using ListR.Services.ShoppingList;
 using ListR.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -32,7 +31,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-builder.Services.AddSingleton<DapperContext>();
 
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<DataContext>()
@@ -109,12 +107,12 @@ builder.Services.AddControllers(
 builder.Services.AddTransient<IAuthenticationService, AuthenticationService>();
 builder.Services.AddTransient<IUserGroupService, UserGroupService>();
 builder.Services.AddTransient<IUserService, UserService>();
-builder.Services.AddTransient<IShoppingListService, ShoppingListService>();
+//builder.Services.AddTransient<IShoppingListService, ShoppingListService>();
 #endregion
 
 #region Repositories
 builder.Services.AddTransient<IUserGroupRepository, UserGroupRepository>();
-builder.Services.AddTransient<IShoppingListRepository, ShoppingListRepository>();
+//builder.Services.AddTransient<IShoppingListRepository, ShoppingListRepository>();
 #endregion
 
 var app = builder.Build();

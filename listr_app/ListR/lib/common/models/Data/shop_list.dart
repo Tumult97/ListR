@@ -8,7 +8,7 @@ class ShopList {
   bool? isCompleted;
   DateTime? dateCreated;
   DateTime? dateModified;
-  int? userCreatedBy;
+  String? userCreatedBy;
   int? userGroupId;
   DateTime? dateCompleted;
   List<ListItem>? listItems;
@@ -32,12 +32,16 @@ class ShopList {
     color = json['color'];
     isDeleted = json['isDeleted'];
     isCompleted = json['isCompleted'];
-    dateCreated = json['dateCreated'];
-    dateModified = json['dateModified'];
+    dateCreated = DateTime.tryParse(json['dateCreated']);
+    dateModified = DateTime.tryParse(json['dateModified']);
     userCreatedBy = json['userCreatedBy'];
     userGroupId = json['userGroupId'];
-    dateCompleted = json['dateCompleted'];
-    listItems = json['listItems'];
+    dateCompleted = DateTime.tryParse(json['dateCompleted']);
+    
+    listItems = <ListItem>[];
+    for(var element in json['listItems']){
+      listItems?.add(ListItem.fromJson(element));
+    }
   }
 
   Map<String, dynamic> toMap(){

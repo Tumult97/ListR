@@ -1,4 +1,1 @@
-class UserGroupEndpointConstants{
-
-  static const String userGroupGetByEmail = 'UserGroup/';
-}
+const String userGroupGetByEmail = 'UserGroup/';

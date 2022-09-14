@@ -330,24 +330,7 @@ namespace ListR.DataLayer.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<< HEAD
-=======
-            modelBuilder.Entity("UserUserGroup", b =>
-                {
-                    b.Property<int>("UserGroupsId")
-                        .HasColumnType("integer");
 
-                    b.Property<string>("UsersId")
-                        .HasColumnType("text");
-
-                    b.HasKey("UserGroupsId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("UserGroupMappings", (string)null);
-                });
-
->>>>>>> SVC_Vanguard
             modelBuilder.Entity("ListR.DataLayer.EntityModels.Lists.ListItem", b =>
                 {
                     b.HasOne("ListR.DataLayer.EntityModels.Lists.ShopList", null)

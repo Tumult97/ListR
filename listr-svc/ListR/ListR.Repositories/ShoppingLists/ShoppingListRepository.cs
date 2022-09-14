@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ListR.Repositories.ShoppingLists
 {
-    public class ShoppingListRepository : IShoppingListRepository
+    public class ShoppingListRepository
     {
         public Task CreateShopList(ShopList model)
         {

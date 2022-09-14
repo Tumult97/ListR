@@ -7,6 +7,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:toast/toast.dart';
 import 'package:listr/common/Constants/app/navigation_routes_constants.dart' as routes;
 
+import '../../../common/logic/Services/user_group_service.dart';
+
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key}) : super(key: key) {
     WidgetsFlutterBinding.ensureInitialized();
@@ -38,9 +40,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void login(NavigatorState navigator) async {
-    if(!(_formKey.currentState!.validate())){
-      return;
-    }
+    // if(!(_formKey.currentState!.validate())){
+    //   return;
+    // }
 
     setState(() {
       isLoading = true;

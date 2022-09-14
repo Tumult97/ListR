@@ -23,15 +23,23 @@ class UserGroup {
     id = json['id'];
     name = json['name'];
     userCreatedBy = json['userCreatedBy'];
-    users = json['users'];
-    lists = json['lists'];
     userIds = json['userIds'];
     isCreator = json['isCreator'];
+
+    lists = <ShopList>[];
+    for (var element in (json['lists'] as List<dynamic>)) {
+      lists?.add(ShopList.fromJson(element));
+    }
+
+    users = <UserModel>[];
+    for (var element in (json['users'] as List<dynamic>)) {
+      users?.add(UserModel.fromJson(element));
+    }
   }
 
 
 
-  Map<String, dynamic> toMap(){
+  Map<String, dynamic> toJson(){
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;

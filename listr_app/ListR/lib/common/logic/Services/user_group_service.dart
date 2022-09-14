@@ -11,14 +11,14 @@ class UserGroupService{
   static Future<List<UserGroup>> getUserGroupsByEmail(String email) async {
     final prefs = await SharedPreferences.getInstance();
 
-    var response = await api.Api().getAsync(constants.UserGroupEndpointConstants.userGroupGetByEmail);
+    var response = await api.Api().getAsync(constants.userGroupGetByEmail + email);
 
     List<UserGroup> responseBody = <UserGroup>[];
     if(response.success && response.body!.isNotEmpty){
-      var jsonBody = jsonDecode(response.body!);
-      // responseBody = LoginResponseModel.fromJson(jsonDecode(response.body!));
-      // prefs.setString('', responseBody.token!);
-      print(jsonBody);
+      List<dynamic> jsonBody = jsonDecode(response.body!);
+      for (var element in jsonBody) {
+        responseBody.add(UserGroup.fromJson(element));
+      }
     }
 
     return responseBody;
